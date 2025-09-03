@@ -49,8 +49,8 @@ class Parser:
         smt_code = '(set-logic QF_NIA)\n\n'
 
         root = self.parse_ast(code)
-        print(code)
-        root.print_tree()
+        # print(code)
+        # root.print_tree()
         expr = self._gen_inv(root)
         assertion = invariant.Assert(expr)
 

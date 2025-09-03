@@ -6,7 +6,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(prog='cond2smt',description='Convert a condition to SMT-LIB format.')
     parser.add_argument('language', choices=['c'], help='Programming language of the input condition.')
     parser.add_argument('condition', help='The condition to be converted.')
-    parser.add_argument('-i','--identifiers', nargs='*', default=[], help='List of identifier:type pairs, e.g., x:Int y:Bool z:Real')
+    parser.add_argument('-i','--identifiers', nargs='*', help='List of identifier:type pairs, e.g., x:Int y:Bool z:Real')
 
     args = parser.parse_args()
 
