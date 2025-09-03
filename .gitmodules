@@ -1,0 +1,4 @@
+[submodule "py-tree-sitter"]
+	path = py-tree-sitter
+	url = https://github.com/UNIST-LOFT/py-tree-sitter.git
+	branch = 0.21.x
