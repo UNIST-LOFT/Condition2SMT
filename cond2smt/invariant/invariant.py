@@ -11,7 +11,10 @@ class Assert:
         
 class UnaryOp:
     def __init__(self, op: str, operand: Union['UnaryOp', 'BinaryOp', declare.DeclareFun]):
-        self.op = op
+        if op == '!':
+            self.op = 'not'
+        else:
+            self.op = op
         self.operand = operand
 
     def __str__(self):
@@ -19,7 +22,16 @@ class UnaryOp:
         
 class BinaryOp:
     def __init__(self, op: str, left: Union[UnaryOp, 'BinaryOp', declare.DeclareFun, str], right: Union[UnaryOp, 'BinaryOp', declare.DeclareFun, str]):
-        self.op = op
+        if op == '&&':
+            self.op = 'and'
+        elif op == '||':
+            self.op = 'or'
+        elif op == '==':
+            self.op = '='
+        elif op == '!=':
+            self.op = 'distinct'
+        else:
+            self.op = op
         self.left = left
         self.right = right
 

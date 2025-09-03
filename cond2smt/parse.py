@@ -41,12 +41,16 @@ class Parser:
                 self.identifier_type[node.value] = invariant.DeclareFun(node.value, 'Int')
             return self.identifier_type[node.value]
         elif node.type == 'number_literal':
-            return node.value
+            if node.value.startswith('-'):
+                inv = invariant.UnaryOp('-', node.value[1:])
+                return inv
+            else:
+                return node.value
         else:
             raise ValueError(f'Unsupported node type: {node.type}')
             
     def generate_invariant(self, code: str) -> str:
-        smt_code = '(set-logic QF_NIA)\n\n'
+        smt_code = '(set-logic QF_LIA)\n\n'
 
         root = self.parse_ast(code)
         # print(code)
